@@ -157,7 +157,7 @@ class Piece {
     fill(0);
     textSize(v*4);
     textAlign(CENTER, CENTER);
-    if (!this.nari　|| this.name === "玉" || this.name === "金") {
+    if (!this.nari || this.name === "玉" || this.name === "金") {
       text(this.name, 0, 2);
     } else if (this.nari) {
       if (this.nariName.length === 2) {
