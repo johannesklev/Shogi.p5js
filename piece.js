@@ -29,7 +29,7 @@ function movePiece(piece, suji, dan, checkedNaru) {
   let okGO = false;
   
   if (isLegalMove(piece, suji, dan)) {
-    if (!checkedNaru) {
+    if (!piece.mochiGoma && !checkedNaru) {
       if (!piece.nari && ((piece.owner === "SENTE" && lastCell.area === "GOTE") || (piece.owner === "GOTE" && lastCell.area === "SENTE") || (newCell && (piece.owner === "SENTE" && newCell.area === "GOTE") || (piece.owner === "GOTE" && newCell.area === "SENTE")))) {
         checkNaru(piece, suji, dan);
       } else {
@@ -61,6 +61,9 @@ function movePiece(piece, suji, dan, checkedNaru) {
         }
         piece.suji = suji;
         piece.dan = dan;
+        if (piece.mochiGoma) {
+          piece.mochiGoma = false;
+        }
         // console.log(suji, dan, piece.name);
         changeTurn();
         selected = undefined;
